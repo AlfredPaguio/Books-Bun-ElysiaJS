@@ -2,7 +2,9 @@ import { Elysia } from "elysia";
 import books from "./books";
 import { swagger } from "@elysiajs/swagger";
 
-const v1 = new Elysia({ prefix: "/v1" })
+const v1 = new Elysia(
+  // { prefix: "/v1" }
+  )
   .use(
     swagger({
       path: "/swagger",
@@ -25,5 +27,5 @@ app.get("/v1", () => "Hello Elysia");
 app.listen(3000);
 
 console.log(
-  `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`
+  `🦊 Elysia is running at http://${app.server?.hostname}:${app.server?.port}`
 );

@@ -1,6 +1,8 @@
 import { Elysia } from "elysia";
 
-const books = new Elysia({ prefix: "/books" })
+const books = new Elysia(
+  // { prefix: "/books" }
+  )
   .get("/", "list of books", {
     detail: {
       tags: ["Books"],
@@ -11,7 +13,7 @@ const books = new Elysia({ prefix: "/books" })
       tags: ["Add Book"],
     },
   })
-  .put("/:id", ({ params: { id } }) => "Updating book: " + id, {
+  .patch("/:id", ({ params: { id } }) => "Updating book: " + id, {
     detail: {
       tags: ["Update Book"],
     },
